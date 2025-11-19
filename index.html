@@ -141,12 +141,31 @@
 </div>
 
 <script>
+  const images = [
+    'monke.webp',
+    'bernie.jpg',
+    'bubbles.jpg',
+    'cheating.jpg',
+    'draw25.jpg',
+    'exit12.jpg',
+    'kanye.jpg',
+    'spongebob.jpg',
+    'squidward.jpg',
+    'sweat.jpg',
+    'como.gif'
+    // add all images in your root folder
+  ];
+
   document.getElementById('b').addEventListener('click', () => {
     const v = document.getElementById('t').value.trim();
     if (!v) return;
-    location.href = 'image.html';
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const chosenImage = images[randomIndex];
+    // Pass chosen image as a query parameter to image.html
+    location.href = `image.html?img=${encodeURIComponent(chosenImage)}`;
   });
 </script>
+
 
 </body>
 </html>

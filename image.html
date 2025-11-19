@@ -1,11 +1,22 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Image</title>
-  <style>html,body{height:100%;margin:0;background:#000}img{width:100vw;height:100vh;object-fit:contain;display:block}</style>
+  <style>
+    html, body { height:100%; margin:0; background:#000; }
+    img { width:100vw; height:100vh; object-fit:contain; display:block; }
+  </style>
 </head>
 <body>
-  <img src="page.webp" alt="Result image">
+  <img id="resultImage" src="" alt="Result image">
+
+  <script>
+    // Read query parameter "img"
+    const params = new URLSearchParams(window.location.search);
+    const img = params.get('img') || 'page.webp'; // fallback
+    document.getElementById('resultImage').src = img;
+  </script>
 </body>
 </html>
